@@ -48,7 +48,8 @@ public:
         cout << "Normal Rooms: " << numNormalRooms << endl;
     }
 };
-
+GuestHouse kurunji("Kurunji", 3, 11, 22);
+GuestHouse marutham("Marutham", 0, 0, 17);
 class User
 {
 private:
@@ -56,11 +57,18 @@ private:
     string password;
 
 public:
-    User(const string &u, const string &p) : username(u), password(p) {}
-
     bool login(const string &u, const string &p)
     {
         return username == u && password == p;
+    }
+    void putDetails(string un, string pw)
+    {
+        username = un;
+        password = pw;
+    }
+    string getName()
+    {
+        return username;
     }
 
     void bookRoom()
@@ -69,130 +77,167 @@ public:
         cout << "Booking a room..." << endl;
     }
 };
+vector<User> bookings;
+vector<User> approvedRequests;
+unordered_map<string, User> listofusers;
 
 class Authorizer
 {
 private:
     string username;
     string password;
+    int category;
 
 public:
-    Authorizer(const string &u, const string &p) : username(u), password(p) {}
+    void setDetails(string un, string pw)
+    {
+        username = un;
+        password = pw;
+    }
 
     bool login(const string &u, const string &p)
     {
         return username == u && password == p;
     }
-
-    void approveRequest(User &user)
-    {
-        // Logic for approving a request
-        cout << "Request approved for user: " << user.getUsername() << endl;
-    }
-
-    void declineRequest(User &user)
-    {
-        // Logic for declining a request
-        cout << "Request declined for user: " << user.getUsername() << endl;
-    }
 };
+unordered_map<string, Authorizer> listofauthorizers;//the list of all the valid authoriser.for now 5 authorisers.
 
 class Manager
 {
 private:
     string username;
     string password;
-    vector<User> approvedRequests;
 
 public:
     Manager(const string &u, const string &p) : username(u), password(p) {}
-
     bool login(const string &u, const string &p)
     {
         return username == u && password == p;
     }
-
     void viewApprovedRequests()
     {
+        //maintain a vector which holds approved requests.
         cout << "Approved Requests:" << endl;
-        for (const auto &user : approvedRequests)
+        for (auto user : approvedRequests)
         {
-            cout << "- " << user.getUsername() << endl;
+            cout << "- " << user.getName() << endl;
+            // manager.allotRoom(user);
         }
     }
 
-    void allotRoom(User &user)
+    void allotRoom(User user)
     {
         // Logic for allotting a room
-        cout << "Room allotted for user: " << user.getUsername() << endl;
+        cout << "Room allotted for user: " << user.getName() << endl;
     }
 
     void updateRoomAvailability()
     {
-        // Logic for updating room availability
+
         cout << "Room availability updated." << endl;
     }
-
-    void addApprovedRequest(const User &user)
-    {
-        approvedRequests.push_back(user);
-    }
 };
+Manager manager("manager", "manager123");
 
 int main()
 {
-    GuestHouse kurunji("Kurunji", 10, 20, 30);
-    GuestHouse marutham("Marutham", 15, 25, 35);
-    User user("user", "user123");
-    Authorizer authorizer("authorizer", "auth123");
-    Manager manager("manager", "manager123");
+    // init authorizers
+    for (int i = 0; i < 5; i++)
+    {
+        string username = "authorizer";
+        username += i + '0';
+        string password = "auth";
+        password += (i + '0');
+        password += "@123";
+        Authorizer authorizer;
+        authorizer.setDetails(username, password);
+        listofauthorizers[username] = authorizer;
+    }
     while (1)
     {
+        int mode;
         string username, password;
         int choice;
-
-        cout << "Enter username: ";
-        cin >> username;
-        cout << "Enter password: ";
-        cin >> password;
-
-        if (user.login(username, password))
+        cout << "Signin(0)/Signup(1):";
+        cin >> mode;
+        if (mode == 1)
         {
-            cout << "Logged in as User." << endl;
-            kurunji.displayAvailability();
-            marutham.displayAvailability();
-            user.bookRoom();
-        }
-        else if (authorizer.login(username, password))
-        {
-            cout << "Logged in as Authorizer." << endl;
-            cout << "1. Approve Request\n2. Decline Request\nEnter choice: ";
-            cin >> choice;
-            if (choice == 1)
+            while (1)
             {
-                authorizer.approveRequest(user);
-                manager.addApprovedRequest(user);
+                cout << "Enter username:";
+                cin >> username;
+                if (listofusers.find(username) != listofusers.end())
+                {
+                    cout << "Username already exists.Try another username." << endl;
+                }
+                else
+                {
+                    cout << "Enter password:";
+                    cin >> password;
+                    User user;
+                    user.putDetails(username, password);
+                    listofusers[username] = user;
+                    break;
+                }
             }
-            else if (choice == 2)
-            {
-                authorizer.declineRequest(user);
-            }
-            else
-            {
-                cout << "Invalid choice." << endl;
-            }
-        }
-        else if (manager.login(username, password))
-        {
-            cout << "Logged in as Manager." << endl;
-            manager.viewApprovedRequests();
-            cout << "Allotting room..." << endl;
-            manager.allotRoom(user);
-            manager.updateRoomAvailability();
         }
         else
         {
-            cout << "Invalid username or password." << endl;
+            cout << "Enter username: ";
+            cin >> username;
+            cout << "Enter password: ";
+            cin >> password;
+            if (manager.login(username, password))
+            {
+                cout << "Logged in as Manager." << endl;
+                manager.viewApprovedRequests();
+                cout << "Update rooms?";
+                int update;
+                cin >> update;
+                if (update)
+                    manager.updateRoomAvailability();
+            }
+            else if (listofauthorizers.find(username) != listofauthorizers.end())
+            {
+                Authorizer authorizer = listofauthorizers[username];
+                if (authorizer.login(username, password))
+                {
+                    cout << "Logged in as Authorizer." << endl;
+                    if (bookings.empty())
+                        cout << "No requests";
+                    else
+                    {
+                        cout << "Pending Requests:" << endl;
+                    }
+                }
+                else
+                {
+                    cout << "Wrong password." << endl;
+                }
+            }
+            else if (listofusers.find(username) != listofusers.end())
+            {
+                User user = listofusers[username];
+                if (user.login(username, password))
+                {
+                    cout << "Logged in as User." << endl;
+                    kurunji.displayAvailability();
+                    marutham.displayAvailability();
+                    int book;
+                    cin >> book;
+                    if (book){
+                        user.bookRoom();/*logic for room booking for user.maintain
+                         a vector of requests which the authoriser can approve*/
+                    }
+                }
+                else{
+                    cout<<"Wrong password";
+                }
+            }
+            else
+            {
+                cout << "Username doesnt exist or incoorect password" << endl;
+            }
         }
     }
 }
