@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <unordered_map>
 using namespace std;
 
 class Guest
@@ -33,9 +36,10 @@ public:
             cout << "Lunch:" << food[1] << endl;
             cout << "Dinner:" << food[2] << endl;
         }
-        cout << "Remarks:" << remarks;
+        cout << "Remarks:" << remarks << endl;
     }
 };
+unordered_map<string, Guest> bookings, approvedRequests;
 class GuestHouse
 {
 private:
@@ -45,9 +49,28 @@ private:
     int numNormalRooms;
 
 public:
+    unordered_map<int, string> roomType;
     unordered_map<int, Guest> listofresidents;
+    // unordered_map<int, Guest> suiteRooms;
+    // unordered_map<int, Guest> minisuiteRooms;
+    // unordered_map<int, Guest> normalRooms;
+
     GuestHouse(const string &n, int suite, int miniSuite, int normal)
-        : name(n), numSuiteRooms(suite), numMiniSuiteRooms(miniSuite), numNormalRooms(normal) {}
+    {
+        name = (n), numSuiteRooms = (suite), numMiniSuiteRooms = (miniSuite), numNormalRooms = (normal);
+        for (int i = 0; i < suite; i++)
+        {
+            roomType[101 + i] = "SUITE";
+        }
+        for (int i = 0; i < miniSuite; i++)
+        {
+            roomType[201 + i] = "MINISUITE";
+        }
+        for (int i = 0; i < normal; i++)
+        {
+            roomType[301 + i] = "NORMAL";
+        }
+    }
 
     string getName() const
     {
@@ -71,6 +94,9 @@ public:
 
     void updateAvailability(int numSuite, int numMiniSuite, int numNormal)
     {
+        // for (int i = 0; i < numSuite; i++)
+        // {
+        // }
         numSuiteRooms -= numSuite;
         numMiniSuiteRooms -= numMiniSuite;
         numNormalRooms -= numNormal;
@@ -89,9 +115,44 @@ public:
             cout << "No residents currently." << endl;
         else
         {
+            cout << this->name << endl
+                 << ":";
+            cout << "-----------" << endl;
+            cout << "Guest\t\tRoom No\tCheck-in\tCheck-out:" << endl;
             for (auto i = listofresidents.begin(); i != listofresidents.end(); i++)
             {
-                cout << (*i).second.guestname << ":" << (*i).first << endl;
+                Guest guest = (*i).second;
+                cout << guest.guestname << "\t";
+                for (auto i : guest.allotedrooms)
+                {
+                    cout << i << " ";
+                }
+                cout << guest.arrival << "\t" << guest.departure << endl;
+            }
+        }
+    }
+    void checkout()
+    {
+        cout << "Enter the room you want to check-out:";
+        int rn;
+        cin >> rn;
+        if (listofresidents.find(rn) == listofresidents.end())
+            cout << "Room is not occupied" << endl;
+        else
+        {
+            listofresidents.erase(rn);
+            cout << "Room no " << rn << " is checked out." << endl;
+            if (roomType[rn] == "SUITE")
+            {
+                this->numSuiteRooms++;
+            }
+            else if (roomType[rn] == "MINISUITE")
+            {
+                this->numMiniSuiteRooms++;
+            }
+            else
+            {
+                this->numNormalRooms++;
             }
         }
     }
@@ -105,23 +166,20 @@ protected:
     string username;
     string password;
     string contactno;
-    string inbox;
-    string remarks;
+    string email;
+
     void setDetails(string un, string pw, string contact, string email)
     {
-        username = un;
-        password = pw;
-        contactno = contact;
-        inbox = "No bookings";
-        remarks = "No Remarks";
+        this->username = un;
+        this->password = pw;
+        this->contactno = contact;
+        this->email = email;
     }
 };
 class User : protected globalUser
 {
 private:
-    // string username;
-    // string password;
-    // Details needed for booking
+    string inbox;
 
 public:
     void init(string un, string pw, string contact, string mailid)
@@ -138,24 +196,51 @@ public:
     }
     void viewInbox()
     {
+        if (inbox.empty())
+        {
+            cout << "No Bookings made. ";
+            return;
+        }
         cout << inbox << endl;
     }
     void notification(Guest guest)
     {
-        inbox = "Your booking request for " + (guest.no_of_rooms + '0');
-        inbox += " rooms for " + guest.guestname;
-        inbox += " has been approved. The Guest House will get back to you. Kindly wait. ";
+        string s;
+        s = "Your booking request for ";
+        s += (guest.no_of_rooms + '0');
+        s += " rooms for " + guest.guestname;
+        s += " has been approved. The Guest House will get back to you. Kindly wait. ";
+        this->inbox = s;
     }
-    void notification()
-    {
-        inbox = "Your booking request has been denied. ";
-    }
+    // void notification()
+    // {
+    //     this->inbox = "Your booking request has been denied. ";
+    // }
     void notification(string s)
     {
-        inbox = s;
+        this->inbox = s;
     }
-    Guest bookRoom()
+    void bookRoom()
     {
+        if (bookings.find(username) != bookings.end())
+        {
+            cout << "You have a pending booking request.Please wait for approval of the previous booking." << endl;
+            return;
+        }
+        cout << "Undertaking:" << endl;
+        cout << "(To be given by the faculty members/ non-teaching staff/ student(s) requiring accommodation for their guests/parents)" << endl;
+        cout << "a. Certified that the visit of the guest(s) is related to the activities of official/personal. I take responsibility for the payment of bills including food charges (if any) of the Guest House." << endl;
+        cout << "b. The guest(s) is (are) personally known to me and I am responsible for his/her conduct." << endl;
+        cout << "c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any)." << endl;
+        cout << "d. I have read the NITT Guest house terms & conditions of and these are acceptable." << endl;
+        cout << "Do you accept:(enter 1):";
+        int accept, food;
+        cin >> accept;
+        if (accept == 0)
+        {
+            cout << "Booking aborted as terms were not followed.";
+            return;
+        }
         Guest guest;
         guest.bookername = getName();
         cout << "Enter name of guest:";
@@ -174,17 +259,7 @@ public:
         cout << "Check-out(dd-mm-yyyy)";
         cin >> dt;
         guest.setDates(at, dt);
-        cout << "Undertaking:" << endl;
-        cout << "(To be given by the faculty members/ non-teaching staff/ student(s) requiring accommodation for their guests/parents)" << endl;
-        cout << "a. Certified that the visit of the guest(s) is related to the activities of official/personal. I take responsibility for the payment of bills including food charges (if any) of the Guest House." << endl;
-        cout << "b. The guest(s) is (are) personally known to me and I am responsible for his/her conduct." << endl;
-        cout << "c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any)." << endl;
-        cout << "d. I have read the NITT Guest house terms & conditions of and these are acceptable." << endl;
-        cout << "Do you accept:(enter 1):";
-        int accept, food;
-        cin >> accept;
-        if (accept == 1)
-            guest.undertaking = true;
+        guest.undertaking = true;
         cout << "Do you need food to be provided:(Enter 1)";
         cin >> food;
         if (food == 1)
@@ -200,12 +275,11 @@ public:
         cout << "Any remarks?";
         cin >> guest.remarks;
         inbox = " Please Wait.Your request is been processed.";
-        return guest;
+        bookings.insert({this->username, guest});
     }
 };
 unordered_map<string, User> listofusers;
-unordered_map<string, Guest> bookings;
-unordered_map<string, Guest> approvedRequests;
+
 class Manager : protected globalUser
 {
     /*private:
@@ -220,6 +294,10 @@ public:
     bool login(const string &u, const string &p)
     {
         return username == u && password == p;
+    }
+    string getUsername()
+    {
+        return username;
     }
     void updateRoomAvailability(Guest guest)
     {
@@ -252,10 +330,8 @@ public:
     void allotRoom(string username, Guest guest)
     {
 
-        if (guest.category <= 2)
-            guest.guesthouse_number = 1;
-        else
-            guest.guesthouse_number = 2;
+        cout << "Accomodation in Kurunji(1)/Marudham(2)";
+        cin >> guest.guesthouse_number;
         updateRoomAvailability(guest);
         string s = "Room allotted for guest: " + guest.guestname;
         cout << s << endl;
@@ -293,7 +369,6 @@ public:
     {
         username = un;
         password = pw;
-        inbox = "No pending requests";
         category = n;
     }
     bool login(const string &u, const string &p)
@@ -302,37 +377,66 @@ public:
     }
     void viewBookings()
     {
-        int flag = 0;
-        for (auto i = bookings.begin(); !(bookings.empty()); i++)
+        int approval;
+        vector<string> request;
+        if (bookings.empty())
         {
-            int approval;
+            cout << "No requests.";
+            return;
+        }
+        for (auto i = bookings.begin(); i != bookings.end(); i++)
+        {
             string username = (*i).first;
             Guest guest = (*i).second;
             if (category <= guest.category)
             {
-                flag = 1;
-                User user = listofusers[username];
-                cout << "Name of the visitor " << guest.guestname << endl;
-                cout << "Approve or Decline(1/0):";
-                cin >> approval;
-                if (approval == 1)
-                {
-                    cout << "Approved for " << guest.guestname << endl;
-                    approvedRequests[username] = guest;
-                    user.notification(guest);
-                    bookings.erase(i);
-                }
-                else
-                {
-                    user.notification();
-                    bookings.erase(i);
-                }
+                request.push_back(username);
             }
         }
-        if (flag == 0)
+        if (request.empty())
+        {
             cout << "Need a higher category authorizer to view the requests" << endl;
-        else
-            cout << "Done authorizing booking requests." << endl;
+            return;
+        }
+        while (!request.empty())
+        {
+            cout << "Pending requests for users:" << endl;
+            for (int i = 0; i < request.size(); i++)
+            {
+
+                cout << i + 1 << ")" << request[i] << endl;
+            }
+            cout << "Enter number to view corresponding User's request or enter 0 to quit:";
+            int j;
+            cin >> j;
+            if (j == 0)
+                return;
+            j--;
+            string username;
+            username = request[j];
+            Guest guest = bookings[username];
+            guest.getDetails();
+            cout << "Approve or Decline(1/0):";
+            cin >> approval;
+            if (approval == 1)
+            {
+                cout << "Approved the request of " << username << endl;
+                approvedRequests.insert({username, guest});
+                listofusers[username].notification(guest);
+            }
+            else
+            {
+                cout << "Denied the request of " << username << endl;
+                cout << "Reason for denial:";
+                string s, msg;
+                cin >> s;
+                msg = "Your booking request has been denied.Reason:";
+                msg += s;
+                listofusers[username].notification(msg);
+            }
+            bookings.erase(username);
+            request.erase(request.begin() + j);
+        }
     }
 };
 unordered_map<string, Authorizer> listofauthorizers; // the list of all the valid authoriser.for now 5 authorisers.
@@ -352,22 +456,31 @@ int main()
         password += "@123";
         Authorizer authorizer;
         authorizer.setDetails(username, password, i);
-        listofauthorizers[username] = authorizer;
+        listofauthorizers.insert({username, authorizer});
     }
+
     while (1)
     {
         int mode;
         string username, password, contact, mailid;
         int choice;
-        cout << "Signin(0)/Signup(1):";
+        cout << "Sign up(0)/Log in(1)/Close Window(2):";
         cin >> mode;
-        if (mode == 1)
+        if (mode == 0)
         {
             while (1)
             {
                 cout << "Enter username:";
                 cin >> username;
                 if (listofusers.find(username) != listofusers.end())
+                {
+                    cout << "Username already exists.Try another username." << endl;
+                }
+                else if (listofauthorizers.find(username) != listofauthorizers.end())
+                {
+                    cout << "Username already exists.Try another username." << endl;
+                }
+                else if (username == manager.getUsername())
                 {
                     cout << "Username already exists.Try another username." << endl;
                 }
@@ -381,13 +494,13 @@ int main()
                     cin >> mailid;
                     User user;
                     user.init(username, password, contact, mailid);
-                    listofusers[username] = user;
-                    cout << "   Sign in to proceed" << endl;
+                    listofusers.insert({username, user});
+                    cout << "Sign in to proceed" << endl;
                     break;
                 }
             }
         }
-        else
+        else if (mode == 1)
         {
             cout << "Enter username: ";
             cin >> username;
@@ -398,7 +511,9 @@ int main()
                 cout << "Logged in as Manager." << endl;
                 while (1)
                 {
-                    cout << "1)View guest list.\n2)Update room status.\n3)View approved requests.\n4)Log out" << endl;
+                    if (!approvedRequests.empty())
+                        cout << "You have new approved bookings!" << endl;
+                    cout << "1)View guest list.\n2)View approved requests.\n3)Check-out Guests.\n4)Log out" << endl;
                     int choice;
                     cin >> choice;
                     if (choice == 1)
@@ -413,21 +528,18 @@ int main()
                             marutham.viewguestlist();
                     }
                     else if (choice == 2)
-                    {
-                        kurunji.displayAvailability();
-                        marutham.displayAvailability();
-                        int gh, a, b, c;
-                        cout << "Kurunji/Marudham(1/2):";
-                        cin >> gh;
-                        cout << "Enter three numbers(for suite, mini-suite, normal;give negative number to remove room):";
-                        cin >> a >> b >> c;
-                        if (gh == 1)
-                            kurunji.updateAvailability(a, b, c);
-                        else
-                            marutham.updateAvailability(a, b, c);
-                    }
-                    else if (choice == 3)
                         manager.viewApprovedRequests();
+                    else if (choice == 3)
+                    {
+                        int gh;
+                        cout << "Kurunji/Mardham(1/2):";
+                        cin >> gh;
+                        if (gh == 1)
+                            kurunji.checkout();
+
+                        else
+                            marutham.checkout();
+                    }
 
                     else
                     {
@@ -444,26 +556,21 @@ int main()
                     cout << "Logged in as Authorizer." << endl;
                     while (1)
                     {
-                        if (bookings.empty())
-                            cout << "No requests" << endl;
-                        else
-                        {
-                            cout << "Pending Requests:" << endl;
-                            authorizer.viewBookings();
-                        }
                         int log;
-                        cout << "Enter 0 to log out:";
+                        cout << "1)View booking requests.\n2)Log out:";
                         cin >> log;
-                        if (log == 0)
+                        if (log == 2)
                         {
                             cout << "Logging out.." << endl;
                             break;
                         }
+                        if (bookings.empty())
+                            cout << "No requests pending." << endl;
+                        else
+                        {
+                            authorizer.viewBookings();
+                        }
                     }
-                }
-                else
-                {
-                    cout << "Wrong password." << endl;
                 }
             }
             else if (listofusers.find(username) != listofusers.end())
@@ -473,26 +580,57 @@ int main()
                 {
                     cout << "Logged in as User." << endl;
                     cout << "Welcome " << user.getName() << endl;
-                    kurunji.displayAvailability();
-                    marutham.displayAvailability();
+
                     while (1)
                     {
                         int choice;
-                        cout << "1)Book Room\n2)View inbox\n3)Log out: ";
+                        cout << "---------------" << endl;
+                        cout << "1)Room availability.\n2)Book Room\n3)Cancel Booking\n4)View inbox\n5)Log out: ";
                         cin >> choice;
                         if (choice == 1)
                         {
-                            Guest guest = user.bookRoom();
-                            bookings[username] = guest;
+                            kurunji.displayAvailability();
+                            marutham.displayAvailability();
                         }
                         else if (choice == 2)
                         {
-                            user.viewInbox();
-                            cout << endl;
+                            user.bookRoom();
                         }
                         else if (choice == 3)
                         {
-                            cout << "Logging out" << endl;
+                            int c;
+                            if (bookings.find(username) == bookings.end() && approvedRequests.find(username) != approvedRequests.end())
+                                cout << "No active bookings made.";
+                            else if (bookings.find(username) == bookings.end())
+                            {
+                                cout << "Your booking was approved for your guest " << approvedRequests[username].guestname << endl;
+                                cout << "Do you still wish to cancel the booking?(enter 1 to cancel):";
+                                cin >> c;
+                                if (c == 1)
+                                {
+                                    approvedRequests.erase(username);
+                                    cout << "Cancellation Successful" << endl;
+                                }
+                            }
+                            else
+                            {
+                                cout << "Your booking is yet to be approved for your guest " << bookings[username].guestname << endl;
+                                cout << "Do you still wish to cancel the booking?(enter 1 to cancel):";
+                                cin >> c;
+                                if (c == 1)
+                                {
+                                    bookings.erase(username);
+                                    cout << "Cancellation Successful" << endl;
+                                }
+                            }
+                        }
+                        else if (choice == 4)
+                        {
+                            user.viewInbox();
+                        }
+                        else if (choice == 5)
+                        {
+                            cout << "Logging out.." << endl;
                             break;
                         }
                     }
@@ -504,8 +642,13 @@ int main()
             }
             else
             {
-                cout << "Username doesnt exist or incoorect password" << endl;
+                cout << "Incorrect Username or Password ." << endl;
             }
+        }
+        else
+        {
+            cout << "Quitting program..";
+            break;
         }
     }
 }
