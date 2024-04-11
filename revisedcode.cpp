@@ -7,10 +7,10 @@ using namespace std;
 class Guest
 {
 public:
-    string guestname, bookername, purpose, arrival, departure;
-    int guesthouse_number, no_of_rooms, no_of_persons, category;
+    string guestname, bookername, arrival, departure;
+    int guesthouse_number, no_of_rooms, no_of_persons, category,food;
     bool undertaking;
-    vector<string> food;
+    char breakfast[50],lunch[50],dinner[50],purpose[50];
     void setDates(string at, string dt)
     {
         arrival = at;
@@ -25,15 +25,16 @@ public:
         cout << "No of persons:" << no_of_persons << endl;
         cout << "Category of guest:" << category << endl;
         cout << "Person making the booking:" << bookername << endl;
+        cout<<"Purpose of visit:"<<purpose<<endl;
         cout << "Arrival on " << arrival << endl;
         cout << "Departure on " << departure << endl;
-        if (food.empty())
+        if (food!=1)
             cout << "No food required." << endl;
         else
         {
-            cout << "Breakfast:" << food[0] << endl;
-            cout << "Lunch:" << food[1] << endl;
-            cout << "Dinner:" << food[2] << endl;
+            cout << "Breakfast:" << breakfast << endl;
+            cout << "Lunch:" << lunch << endl;
+            cout << "Dinner:" << dinner<< endl;
         }
     }
 };
@@ -109,11 +110,11 @@ public:
         {
             cout << this->name << ":" << endl;
             cout << "-----------" << endl;
-            cout << "Guest\t\tRoom No\t\tCheck-in\tCheck-out:" << endl;
+            cout << "Guest\t\tRoom No\tCheck-in\tCheck-out:" << endl;
             for (auto i = listofresidents.begin(); i != listofresidents.end(); i++)
             {
                 Guest guest = (*i).second;
-                cout << guest.guestname << "\t" << (*i).first << "\t";
+                cout << guest.guestname << "\t\t" << (*i).first << "\t";
                 cout << guest.arrival << "\t" << guest.departure << endl;
             }
         }
@@ -228,11 +229,11 @@ public:
         cout << "c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any)." << endl;
         cout << "d. I have read the NITT Guest house terms & conditions of and these are acceptable." << endl;
         cout << "Do you accept:(enter 1):";
-        int accept, food;
+        int accept;
         cin >> accept;
         if (accept == 0)
         {
-            cout << "Booking aborted as terms were not followed.";
+            cout << "Booking aborted as terms were not followed."<<endl;
             return;
         }
         Guest guest;
@@ -253,19 +254,20 @@ public:
         guest.setDates(at, dt);
         guest.undertaking = true;
         cout << "Do you need food to be provided:(Enter 1)";
-        cin >> food;
-        if (food == 1)
+        cin >> guest.food;
+        if (guest.food == 1)
         {
-            cout << "Enter the food you need to be provided at breakfast lunch and dinner:";
-            for (int i = 0; i < 3; i++)
-            {
-                string meal;
-                cin >> meal;
-                guest.food.push_back(meal);
-            }
+            char c[50];
+            cin.getline(c,50);
+            cout << "Enter the food you need to be provided at breakfast:";
+            cin.getline(guest.breakfast,30);
+            cout << "Enter the food you need to be provided at lunch:";
+            cin.getline(guest.lunch,30);
+            cout << "Enter the food you need to be provided at dinner:";
+            cin.getline(guest.dinner,30);
         }
         cout << "Enter purpose of visit:";
-        getline(cin, guest.purpose);
+        cin.getline(guest.purpose,50);
         inbox = " Please Wait.Your request is been processed.";
         bookings.insert({this->username, guest});
     }
@@ -417,7 +419,7 @@ public:
         }
         if (request.empty())
         {
-            cout << "Need a higher category authorizer to view the requests" << endl;
+            cout << "Need a higher category authorizer to view the requests." << endl;
             return;
         }
         while (!request.empty())
@@ -450,8 +452,11 @@ public:
             {
                 cout << "Denied the request of " << username << endl;
                 cout << "Reason for denial:";
-                string s, msg;
-                getline(cin, s);
+                char s[50];
+                string msg;
+                char c[50];
+                cin.getline(c,50);
+                cin.getline(s,50);
                 msg = "Your booking request has been denied.Reason:";
                 msg += s;
                 listofusers[username].notification(msg);
@@ -632,12 +637,13 @@ int main()
                         else if (choice == 2)
                         {
                             user.bookRoom();
+                            listofusers[username]=user;
                         }
                         else if (choice == 3)
                         {
                             int c;
                             if (bookings.find(username) == bookings.end() && approvedRequests.find(username) == approvedRequests.end())
-                                cout << "No active bookings made.";
+                                cout << "No active bookings made."<<endl;
                             else if (bookings.find(username) == bookings.end())
                             {
                                 cout << "Your booking was approved for your guest " << approvedRequests[username].guestname << endl;
@@ -646,9 +652,10 @@ int main()
                                 if (c == 1)
                                 {
                                     approvedRequests.erase(username);
-                                    cout << "Cancellation Successful" << endl;
+                                    cout << "Cancellation Successful!" << endl;
                                     string s="No Bookings.";
-                                    listofusers[username].notification(s);
+                                    user.notification(s);
+                                    listofusers[username]=user;
                                 }
                             }
                             else
@@ -660,7 +667,10 @@ int main()
                                 {
                                     bookings.erase(username);
                                     string s="No Bookings.";
+                                    cout << "Cancellation Successful!" << endl;
                                     listofusers[username].notification(s);
+                                    user.notification(s);
+                                    listofusers[username]=user;
                                 }
                             }
                         }
