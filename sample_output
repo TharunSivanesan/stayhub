@@ -1,1 +1,703 @@
-hi
+Sign up(0)/Log in(1)/Close Window(2):0
+Enter username:Tharun
+Enter password:Tharun03
+Enter contact no:8300349326
+Enter email:106122128@nitt.edu
+Sign in to proceed
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: Tharun
+Enter password: Tharun
+Wrong password
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: Tharun
+Enter password: Tharun03
+Logged in as User.
+Welcome Tharun
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 1
+Availability for Kurunji Guest House:
+Suite Rooms: 3
+Mini Suite Rooms: 11
+Normal Rooms: 22
+Availability for Marutham Guest House:
+Suite Rooms: 0
+Mini Suite Rooms: 0
+Normal Rooms: 17
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 2
+Undertaking:
+(To be given by the faculty members/ non-teaching staff/ student(s) requiring accommodation for their guests/parents)
+a. Certified that the visit of the guest(s) is related to the activities of official/personal. I take responsibility for the payment of bills including food charges (if any) of the Guest House.
+b. The guest(s) is (are) personally known to me and I am responsible for his/her conduct.
+c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any).
+d. I have read the NITT Guest house terms & conditions of and these are acceptable.
+Do you accept:(enter 1):1
+Enter name of guest:Sivanesan 
+Enter Category proposed : 3
+Enter no of rooms needed : 5
+Enter no of persons:5
+Check-in(dd-mm-yyyy)12-04-2024
+Check-out(dd-mm-yyyy)16-04-2024
+Do you need food to be provided:(Enter 1)0
+Enter purpose of visit:To visit son.
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 2
+You have a pending booking request.Please wait for approval of the previous booking.
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 3
+Your booking is yet to be approved for your guest Sivanesan
+Do you still wish to cancel the booking?(enter 1 to cancel):1
+Cancellation Successful
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 2
+Undertaking:
+(To be given by the faculty members/ non-teaching staff/ student(s) requiring accommodation for their guests/parents)
+a. Certified that the visit of the guest(s) is related to the activities of official/personal. I take responsibility for the payment of bills including food charges (if any) of the Guest House.
+b. The guest(s) is (are) personally known to me and I am responsible for his/her conduct.
+c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any).
+d. I have read the NITT Guest house terms & conditions of and these are acceptable.
+Do you accept:(enter 1):1
+Enter name of guest:Sivanesan
+Enter Category proposed : 3
+Enter no of rooms needed : 5
+Enter no of persons:5
+Check-in(dd-mm-yyyy)12-04-2024
+Check-out(dd-mm-yyyy)16-04-2024
+Do you need food to be provided:(Enter 1)0
+Enter purpose of visit:To visit son.
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 4
+ Please Wait.Your request is been processed.
+
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 5
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: authorizer4
+Enter password: auth4@123
+Logged in as Authorizer.
+1)Room availability.
+2)View booking requests.
+3)Log out:1
+Availability for Kurunji Guest House:
+Suite Rooms: 3
+Mini Suite Rooms: 11
+Normal Rooms: 22
+Availability for Marutham Guest House:
+Suite Rooms: 0
+Mini Suite Rooms: 0
+Normal Rooms: 17
+1)Room availability.
+2)View booking requests.
+3)Log out:2
+Need a higher category authorizer to view the requests.
+1)Room availability.
+2)View booking requests.
+3)Log out:3
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: authorizer3
+Enter password: auth3@123
+Logged in as Authorizer.
+1)Room availability.
+2)View booking requests.
+3)Log out:2
+Pending requests for users:
+1)Tharun
+Enter number to view corresponding User's request or enter 0 to quit:1
+Details:
+---------
+Guest name:Sivanesan
+No of rooms required:5
+No of persons:5
+Category of guest:3
+Person making the booking:Tharun
+Purpose of visit:
+Arrival on 12-04-2024
+Departure on 16-04-2024
+No food required.
+Approve or Decline(1/0):0
+Denied the request of Tharun
+Reason for denial:Unjustifiable request for multiple rooms.
+1)Room availability.
+2)View booking requests.
+3)Log out:2
+No requests pending.
+1)Room availability.
+2)View booking requests.
+3)Log out:3
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: Tharun
+Enter password: Tharun03
+Logged in as User.
+Welcome Tharun
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 4
+Your booking request has been denied.Reason:Unjustifiable request for multiple rooms.
+
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 2
+Undertaking:
+(To be given by the faculty members/ non-teaching staff/ student(s) requiring accommodation for their guests/parents)
+a. Certified that the visit of the guest(s) is related to the activities of official/personal. I take responsibility for the payment of bills including food charges (if any) of the Guest House.
+b. The guest(s) is (are) personally known to me and I am responsible for his/her conduct.
+c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any).
+d. I have read the NITT Guest house terms & conditions of and these are acceptable.
+Do you accept:(enter 1):0
+Booking aborted as terms were not followed.
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 2
+Undertaking:
+(To be given by the faculty members/ non-teaching staff/ student(s) requiring accommodation for their guests/parents)
+a. Certified that the visit of the guest(s) is related to the activities of official/personal. I take responsibility for the payment of bills including food charges (if any) of the Guest House.
+b. The guest(s) is (are) personally known to me and I am responsible for his/her conduct.
+c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any).
+d. I have read the NITT Guest house terms & conditions of and these are acceptable.
+Do you accept:(enter 1):1
+Enter name of guest:Sivanesan
+Enter Category proposed : 3
+Enter no of rooms needed : 2
+Enter no of persons:5
+Check-in(dd-mm-yyyy)12-04-2024
+Check-out(dd-mm-yyyy)16-04-2024
+Do you need food to be provided:(Enter 1)0
+Enter purpose of visit:To visit son in college.
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 4
+ Please Wait.Your request is been processed.
+
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 5
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: authorizer2
+Enter password: auth2@123
+Logged in as Authorizer.
+1)Room availability.
+2)View booking requests.
+3)Log out:2
+Pending requests for users:
+1)Tharun
+Enter number to view corresponding User's request or enter 0 to quit:1
+Details:
+---------
+Guest name:Sivanesan
+No of rooms required:2
+No of persons:5
+Category of guest:3
+Person making the booking:Tharun
+Purpose of visit:
+Arrival on 12-04-2024
+Departure on 16-04-2024
+No food required.
+Approve or Decline(1/0):1
+Approved the request of Tharun
+1)Room availability.
+2)View booking requests.
+3)Log out:3
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: Tharun
+Enter password: Tharun03
+Logged in as User.
+Welcome Tharun
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 3
+Your booking was approved for your guest Sivanesan
+Do you still wish to cancel the booking?(enter 1 to cancel):1
+Cancellation Successful
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 2
+Undertaking:
+(To be given by the faculty members/ non-teaching staff/ student(s) requiring accommodation for their guests/parents)
+a. Certified that the visit of the guest(s) is related to the activities of official/personal. I take responsibility for the payment of bills including food charges (if any) of the Guest House.
+b. The guest(s) is (are) personally known to me and I am responsible for his/her conduct.
+c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any).
+d. I have read the NITT Guest house terms & conditions of and these are acceptable.
+Do you accept:(enter 1):1
+Enter name of guest:Sivanesan
+Enter Category proposed : 3
+Enter no of rooms needed : 2
+Enter no of persons:5
+Check-in(dd-mm-yyyy)12-04-2024
+Check-out(dd-mm-yyyy)16-04-2024
+Do you need food to be provided:(Enter 1)1
+Enter the food you need to be provided at breakfast:Idly 
+Enter the food you need to be provided at lunch:Sambar Rice
+Enter the food you need to be provided at dinner:Chicken Biryani
+Enter purpose of visit:To visit son in college.
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 5
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: authorizer1
+Enter password: auth1@123
+Logged in as Authorizer.
+1)Room availability.
+2)View booking requests.
+3)Log out:2
+Pending requests for users:
+1)Tharun
+Enter number to view corresponding User's request or enter 0 to quit:1
+Details:
+---------
+Guest name:Sivanesan
+No of rooms required:2
+No of persons:5
+Category of guest:3
+Person making the booking:Tharun
+Purpose of visit:To visit son in college.
+Arrival on 12-04-2024
+Departure on 16-04-2024
+Breakfast:Idly 
+Lunch:Sambar Rice
+Dinner:Chicken Biryani
+Approve or Decline(1/0):1
+Approved the request of Tharun
+1)Room availability.
+2)View booking requests.
+3)Log out:3
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: manager
+Enter password: manager123
+Logged in as Manager.
+You have new approved bookings!
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+2
+Approved Requests:
+Details:
+---------
+Guest name:Sivanesan
+No of rooms required:2
+No of persons:5
+Category of guest:3
+Person making the booking:Tharun
+Purpose of visit:To visit son in college.
+Arrival on 12-04-2024
+Departure on 16-04-2024
+Breakfast:
+Lunch:Idly Sambar Rice
+Dinner:Chicken Biryani
+Accomodation in Kurunji(1)/Marudham(2):1
+Enter room nos:301 302
+Rooms have been allotted for guest Sivanesan in Kurunji.
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+1
+Kurunji/Mardham(1/2):1
+Kurunji:
+-----------
+Guest           Room No         Check-in        Check-out:
+Sivanesan       302     	12-04-2024      16-04-2024
+Sivanesan       301     	12-04-2024      16-04-2024
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+1
+Kurunji/Mardham(1/2):2
+No residents currently.
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+4
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: Tharun
+Enter password: Tharun03
+Logged in as User.
+Welcome Tharun
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 4
+Rooms have been allotted for guest Sivanesan in Kurunji.
+
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 5
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):0
+Enter username:Varun
+Enter password:Varun07
+Enter contact no:9894744511
+Enter email:106122200@nitt.edu
+Sign in to proceed
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: Varun
+Enter password: Varun07
+Logged in as User.
+Welcome Varun
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 1
+Availability for Kurunji Guest House:
+Suite Rooms: 3
+Mini Suite Rooms: 11
+Normal Rooms: 20
+Availability for Marutham Guest House:
+Suite Rooms: 0
+Mini Suite Rooms: 0
+Normal Rooms: 17
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 2
+Undertaking:
+(To be given by the faculty members/ non-teaching staff/ student(s) requiring accommodation for their guests/parents)
+a. Certified that the visit of the guest(s) is related to the activities of official/personal. I take responsibility for the payment of bills including food charges (if any) of the Guest House.
+b. The guest(s) is (are) personally known to me and I am responsible for his/her conduct.
+c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any).
+d. I have read the NITT Guest house terms & conditions of and these are acceptable.
+Do you accept:(enter 1):1
+Enter name of guest:KamalHasan  
+Enter Category proposed : 1
+Enter no of rooms needed : 1
+Enter no of persons:1
+Check-in(dd-mm-yyyy)20-04-2024
+Check-out(dd-mm-yyyy)22-04-2024
+Do you need food to be provided:(Enter 1)1
+Enter the food you need to be provided at breakfast:Pongal
+Enter the food you need to be provided at lunch:Chicken Biryani
+Enter the food you need to be provided at dinner:Kottu Parotta   
+Enter purpose of visit:Giving a guest lecture during NITT-FEST
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 5
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: authorizer1
+Enter password: auth1@123
+Logged in as Authorizer.
+1)Room availability.
+2)View booking requests.
+3)Log out:1
+Availability for Kurunji Guest House:
+Suite Rooms: 3
+Mini Suite Rooms: 11
+Normal Rooms: 20
+Availability for Marutham Guest House:
+Suite Rooms: 0
+Mini Suite Rooms: 0
+Normal Rooms: 17
+1)Room availability.
+2)View booking requests.
+3)Log out:2
+Pending requests for users:
+1)Varun
+Enter number to view corresponding User's request or enter 0 to quit:1
+Details:
+---------
+Guest name:KamalHasan
+No of rooms required:1
+No of persons:1
+Category of guest:1
+Person making the booking:Varun
+Purpose of visit:Giving a guest lecture during NITT-FEST
+Arrival on 20-04-2024
+Departure on 22-04-2024
+Breakfast:
+Lunch:Pongal. Chicken Biryani.
+Dinner:Kottu Parotta
+Approve or Decline(1/0):1
+Approved the request of Varun
+1)Room availability.
+2)View booking requests.
+3)Log out:3
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: manager
+Enter password: manager123
+Logged in as Manager.
+You have new approved bookings!
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+2
+Approved Requests:
+Details:
+---------
+Guest name:KamalHasan
+No of rooms required:1
+No of persons:1
+Category of guest:1
+Person making the booking:Varun
+Purpose of visit:Giving a guest lecture during NITT-FEST
+Arrival on 20-04-2024
+Departure on 22-04-2024
+Breakfast:
+Lunch:Pongal. Chicken Biryani.
+Dinner:Kottu Parotta
+Accomodation in Kurunji(1)/Marudham(2):1
+Enter room nos:101
+Rooms have been allotted for guest KamalHasan in Kurunji.
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+1
+Kurunji/Mardham(1/2):1
+Kurunji:
+-----------
+Guest           Room No         Check-in        Check-out:
+Sivanesan       302     12-04-2024      16-04-2024
+KamalHasan      101     20-04-2024      22-04-2024
+Sivanesan       301     12-04-2024      16-04-2024
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+4
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):0
+Enter username:Arun
+Enter password:Arun2005
+Enter contact no:9994497844
+Enter email:106122000@nitt.edu
+Sign in to proceed
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: Arun
+Enter password: Arun2005
+Logged in as User.
+Welcome Arun
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 2
+Undertaking:
+(To be given by the faculty members/ non-teaching staff/ student(s) requiring accommodation for their guests/parents)
+a. Certified that the visit of the guest(s) is related to the activities of official/personal. I take responsibility for the payment of bills including food charges (if any) of the Guest House.
+b. The guest(s) is (are) personally known to me and I am responsible for his/her conduct.
+c. I hereby undertake to vacate the room in the Guest House, if allotted, on the expiry of the sanctioned period. In case I fail to do so, I will be liable to be charged penal rent (if any).
+d. I have read the NITT Guest house terms & conditions of and these are acceptable.
+Do you accept:(enter 1):1
+Enter name of guest:Kalpana
+Enter Category proposed : 3
+Enter no of rooms needed : 1
+Enter no of persons:1
+Check-in(dd-mm-yyyy)25-04-2024
+Check-out(dd-mm-yyyy)27-04-2024
+Do you need food to be provided:(Enter 1)0
+Enter purpose of visit:---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 5
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: authorizer3
+Enter password: auth3@123 
+Logged in as Authorizer.
+1)Room availability.
+2)View booking requests.
+3)Log out:2
+Pending requests for users:
+1)Arun
+Enter number to view corresponding User's request or enter 0 to quit:1
+Details:
+---------
+Guest name:Kalpana
+No of rooms required:1
+No of persons:1
+Category of guest:3
+Person making the booking:Arun
+Purpose of visit:
+Arrival on 25-04-2024
+Departure on 27-04-2024
+No food required.
+Approve or Decline(1/0):1
+Approved the request of Arun
+1)Room availability.
+2)View booking requests.
+3)Log out:3
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: manager
+Enter password: manager123
+Logged in as Manager.
+You have new approved bookings!
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+2
+Approved Requests:
+Details:
+---------
+Guest name:Kalpana
+No of rooms required:1
+No of persons:1
+Category of guest:3
+Person making the booking:Arun
+Purpose of visit:
+Arrival on 25-04-2024
+Departure on 27-04-2024
+No food required.
+Accomodation in Kurunji(1)/Marudham(2):2
+Enter room nos:301
+Rooms have been allotted for guest Kalpana in Marudham.
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+1
+Kurunji/Mardham(1/2):1
+Kurunji:
+-----------
+Guest           Room No         Check-in        Check-out:
+Sivanesan       302     12-04-2024      16-04-2024
+KamalHasan      101     20-04-2024      22-04-2024
+Sivanesan       301     12-04-2024      16-04-2024
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+1
+Kurunji/Mardham(1/2):2
+Marutham:
+-----------
+Guest           Room No         Check-in        Check-out:
+Kalpana 301     25-04-2024      27-04-2024
+1)View guest list.
+2)View approved requests.
+3)Check-out Guests.
+4)Log out
+3
+Kurunji/Mardham(1/2):2
+Enter the room you want to check-out:303
+Room is not occupied     
+1)View guest list.       
+2)View approved requests.
+3)Check-out Guests.      
+4)Log out
+3
+Kurunji/Mardham(1/2):2
+Enter the room you want to check-out:301
+Room no 301 is checked out.
+1)View guest list.
+2)View approved requests.  
+3)Check-out Guests.        
+4)Log out
+4
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):1
+Enter username: Arun
+Enter password: Arun2005
+Logged in as User.  
+Welcome Arun        
+---------------     
+1)Room availability.
+2)Book Room
+3)Cancel Booking    
+4)View inbox        
+5)Log out: 4
+Your guest has checked out. Kindly report to the guest house for payment.
+
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out:1
+Availability for Kurunji Guest House:
+Suite Rooms: 2
+Mini Suite Rooms: 11
+Normal Rooms: 20
+Availability for Marutham Guest House:
+Suite Rooms: 0
+Mini Suite Rooms: 0
+Normal Rooms: 17
+---------------
+1)Room availability.
+2)Book Room
+3)Cancel Booking
+4)View inbox
+5)Log out: 5
+Logging out..
+Sign up(0)/Log in(1)/Close Window(2):2
+Quitting program..
