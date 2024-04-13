@@ -140,7 +140,7 @@ No of rooms required:5
 No of persons:5
 Category of guest:3
 Person making the booking:Tharun
-Purpose of visit:
+Purpose of visit:To visit son.
 Arrival on 12-04-2024
 Departure on 16-04-2024
 No food required.
@@ -235,7 +235,7 @@ No of rooms required:2
 No of persons:5
 Category of guest:3
 Person making the booking:Tharun
-Purpose of visit:
+Purpose of visit:To visit son in college.
 Arrival on 12-04-2024
 Departure on 16-04-2024
 No food required.
@@ -477,8 +477,8 @@ Person making the booking:Varun
 Purpose of visit:Giving a guest lecture during NITT-FEST
 Arrival on 20-04-2024
 Departure on 22-04-2024
-Breakfast:
-Lunch:Pongal. Chicken Biryani.
+Breakfast:Pongal.
+Lunch:Chicken Biryani.
 Dinner:Kottu Parotta
 Approve or Decline(1/0):1
 Approved the request of Varun
@@ -507,8 +507,8 @@ Person making the booking:Varun
 Purpose of visit:Giving a guest lecture during NITT-FEST
 Arrival on 20-04-2024
 Departure on 22-04-2024
-Breakfast:
-Lunch:Pongal. Chicken Biryani.
+Breakfast:Pongal.
+Lunch: Chicken Biryani.
 Dinner:Kottu Parotta
 Accomodation in Kurunji(1)/Marudham(2):1
 Enter room nos:101
@@ -562,7 +562,8 @@ Enter no of persons:1
 Check-in(dd-mm-yyyy)25-04-2024
 Check-out(dd-mm-yyyy)27-04-2024
 Do you need food to be provided:(Enter 1)0
-Enter purpose of visit:---------------
+Enter purpose of visit:To visit son's graduation ceremony
+---------------
 1)Room availability.
 2)Book Room
 3)Cancel Booking
@@ -586,7 +587,7 @@ No of rooms required:1
 No of persons:1
 Category of guest:3
 Person making the booking:Arun
-Purpose of visit:
+Purpose of visit:To visit son's graduation ceremony
 Arrival on 25-04-2024
 Departure on 27-04-2024
 No food required.
@@ -614,7 +615,7 @@ No of rooms required:1
 No of persons:1
 Category of guest:3
 Person making the booking:Arun
-Purpose of visit:
+Purpose of visit:To visit son's graduation ceremony
 Arrival on 25-04-2024
 Departure on 27-04-2024
 No food required.
