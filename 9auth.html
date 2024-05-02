@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Inbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f3f3; /* Light gray background */
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #f0f0f0;
+    }
+    .location p {
+      margin: 0;
+      font-size: 0.8rem;
+    }
+    .navigation {
+      display: flex;
+      gap: 1rem;
+    }
+    .navigation a {
+      text-decoration: none;
+      color: black;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    .buttons a {
+      background-color: #003380;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+    .buttons a:hover {
+      background-color: #001f4d;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .email-list {
+      list-style: none;
+      padding: 0;
+    }
+    .email-item button {
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      padding: 10px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .email-item button:hover {
+      background-color: #f9f9f9;
+    }
+    .email-item .sender {
+      flex: 1;
+    }
+    .email-item .subject {
+      flex: 2;
+    }
+    .email-item .date {
+      flex: 1;
+      text-align: right;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0a0b3d;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="body">
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+  <header>
+    <div class="navigation">
+      <a href="#">Home</a>
+      <a href="#">|</a>
+      <a href="#">Logout</a>
+    </div>
+  </header>
+  <!-- <div class="buttons">
+    <div class="booking-button" id="makeBooking"><a href="5book.html">Make a Booking</a></div>
+    <div class="booking-button" id="cancelBooking"><a href="7cancel.html">Cancel Booking</a></div>
+    <div class="booking-button" id="viewRooms"><a href="6view.html">View Available Rooms</a></div>
+    <div class="booking-button" id="mail"><a href="8mail.html">Mail</a></div>
+    <div class="booking-button" id="aboutGuestHouse"><a href="8about.html">About Guest House</a></div>
+  </div> -->
+
+  <div class="container">
+    <h1>Booking Request</h1>
+    <ul class="email-list">
+      <!-- <li class="email-item">
+        <button onclick="location.href='email_details.html';">
+          <div class="sender">Jane Smith</div>
+          <div class="subject">Category I</div>
+          <div class="date">Apr 19</div>
+        </button>
+      </li>
+      <li class="email-item">
+        <button onclick="location.href='email_details.html';">
+          <div class="sender">Alice Johnson</div>
+          <div class="subject">Category II</div>
+          <div class="date">Apr 18</div>
+        </button>
+      </li>
+      <li class="email-item">
+        <button onclick="location.href='email_details.html';">
+          <div class="sender">Bob Brown</div>
+          <div class="subject">Category II</div>
+          <div class="date">Apr 17</div>
+        </button>
+      </li>
+      <li class="email-item">
+        <button onclick="location.href='email_details.html';">
+          <div class="sender">David Wilson</div>
+          <div class="subject">Category III</div>
+          <div class="date">Apr 16</div>
+        </button>
+      </li> -->
+    </ul>
+  </div>
+  <div class="footer">
+    Developed By MadeEasy, NIT-T
+  </div>
+</div>
+</body>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetchBookingRequests();
+  });
+
+  function fetchBookingRequests() {
+    var apiURL = 'https://localhost:44314/api/NITTRoomBookAPI/GHBookingRequestedList';
+
+    var requestOptions = {
+      method: 'POST',
+      headers: {
+        'Accept': '*/*',
+        'Content-Type': 'application/json'
+      }
+    };
+    fetch(apiURL, requestOptions)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch booking requests');
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data && data.result && data.result.length > 0) {
+          displayBookingRequests(data.result);
+        } else {
+          displayNoBookingRequests();
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching booking requests:', error);
+        displayError('Error fetching booking requests: ' + error.message);
+      });
+  }
+
+  function displayBookingRequests(bookingRequests) {
+    var container = document.querySelector('.container .email-list');
+    container.innerHTML = ''; // Clear existing content
+
+    bookingRequests.forEach(function(bookingRequest) {
+      var emailItem = document.createElement('li');
+      emailItem.classList.add('email-item');
+
+      var anchor = document.createElement('a');
+      anchor.href = '10request.html'; // Link to the details page
+      emailItem.appendChild(anchor);
+
+      var sender = document.createElement('div');
+      sender.classList.add('sender');
+      sender.textContent = bookingRequest.bookingName; // Adjust based on your data
+      anchor.appendChild(sender);
+
+      var subject = document.createElement('div');
+      subject.classList.add('subject');
+      subject.textContent = bookingRequest.category; // Adjust based on your data
+      anchor.appendChild(subject);
+
+      var date = document.createElement('div');
+      date.classList.add('date');
+      date.textContent = new Date(bookingRequest.dateFrom).toLocaleDateString(); // Adjust based on your data
+      anchor.appendChild(date);
+
+      container.appendChild(emailItem);
+    });
+  }
+
+  function displayNoBookingRequests() {
+    var container = document.querySelector('.container .email-list');
+    container.innerHTML = '<li class="email-item"><h1>No booking requests found</h1></li>';
+  }
+
+  function displayError(errorMessage) {
+    var container = document.querySelector('.container .email-list');
+    container.innerHTML = '<li class="email-item"><h1>' + errorMessage + '</h1></li>';
+  }
+    // Function to navigate to the home page
+    function goToHome() {
+      // Replace '#' with the actual URL of your home page
+      window.location.href = "9auth.html";
+    }
+  
+    // Function to logout
+    function logout() {
+      // Add your logout functionality here
+      alert("Logout Successful!");
+      // Redirect to the login page or any other appropriate page after logout
+      window.location.href = "2home_page.html";
+    }
+  
+    // Event listener to call the goToHome function when the "Home" link is clicked
+    document.querySelector('.navigation a:nth-child(1)').addEventListener('click', goToHome);
+  
+    // Event listener to call the logout function when the "Logout" link is clicked
+    document.querySelector('.navigation a:nth-child(3)').addEventListener('click', logout);
+</script>
+
+</body>
+</html>
